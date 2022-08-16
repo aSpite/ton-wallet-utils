@@ -8,4 +8,4 @@ Based on [@truecarry/ton-lite-client](https://www.npmjs.com/package/@truecarry/t
 ## Features
 - Create Highload Wallet
 - Transfer multiple transactions at the same time
-- Not using TON Center public RPC node
+- NOT using TON Center HTTP API
