@@ -1,0 +1,13 @@
+import { keyPairFromSeed, getSecureRandomBytes } from 'ton-crypto'
+import pkg from 'ton3-contracts'
+const { Wallets } = pkg
+
+export async function createHighloadWallet() {
+  let seed = await getSecureRandomBytes(32)
+  const { publicKey, secretKey } = keyPairFromSeed(seed)
+  const wallet = new Wallets.ContractHighloadWalletV2(0, publicKey, 1)
+  const address = wallet.address.toString('base64', { bounceable: true, urlSafe: true, workchain: 0 })
+  console.log(`Please, deposit some TON here ${address}`)
+  seed = seed.toString('hex')
+  return { address, seed, publicKey, secretKey }
+}
