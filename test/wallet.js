@@ -3,6 +3,7 @@ import { createHighloadWallet, sendTransfers } from '../main.js'
 async function exampleWallet() {
   const { address, seed } = await createHighloadWallet()
   console.log({ address, seed })
+  process.exit(0)
 }
 
 async function exampleTransfer() {
