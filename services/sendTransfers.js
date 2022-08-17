@@ -1,6 +1,6 @@
 import { Address, BOC, Builder, Cell, Coins } from 'ton3-core'
 import { keyPairFromSeed } from 'ton-crypto'
-import { startTonLiteServer } from './_startTonLiteServer.js'
+import { startTonLiteServer } from './startTonLiteServer.js'
 import pkg from 'ton3-contracts'
 const { Wallets } = pkg
 
