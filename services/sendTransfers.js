@@ -30,10 +30,10 @@ export async function sendTransfers({ transfers = [], seed }) {
   }
 }
 
-export function mapTransfer({ recepient, sendMessage, tonAmount }) {
+export function mapTransfer({ recipient, sendMessage, tonAmount }) {
   const body = sendMessage ? new Builder().storeUint(0, 32).storeString(sendMessage).cell() : new Cell()
   const mode = 3
   const amount = new Coins(tonAmount, 0)
-  const destination = new Address(recepient)
+  const destination = new Address(recipient)
   return { destination, amount, mode, body }
 }

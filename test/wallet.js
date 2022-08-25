@@ -15,7 +15,7 @@ async function exampleTransfer() {
   /* Don't forget to deposit some TONs to the address ↑ */
 
   /* Put your test transfer here */
-  const recepient = 'EQDVmaZ4tfyEWXuIbZdJqmd-NVJdo7IUtj3vom-xWrlFWaNl'
+  const recipient = 'EQDVmaZ4tfyEWXuIbZdJqmd-NVJdo7IUtj3vom-xWrlFWaNl'
   const sendMessage = 'highload test'
   const tonAmount = 0.001
 
@@ -28,7 +28,7 @@ async function exampleTransfer() {
   /* Example of multiple transactions in one blockchain request */
   const transfersCount = 10
   const transfers = []
-  const transfer = { recepient, sendMessage, tonAmount }
+  const transfer = { recipient, sendMessage, tonAmount }
   for (let i = 0; i < transfersCount; i++) transfers.push(transfer)
   await sendTransfers({ transfers, seed })
   process.exit(0)
