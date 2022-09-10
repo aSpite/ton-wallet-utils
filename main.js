@@ -29,7 +29,6 @@ const methods = {
   getTransactions,
   highloadTransfers,
   loadWallet,
-  highloadTransfers,
   startTonLiteServer,
   transferTon,
   shortAddress,
