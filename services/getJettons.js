@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { flipAddressType } from './flipAddressType.js'
+import { flipAddressType } from './utils.js'
 
 export async function getJettons({ address }) {
   const rawAddress = flipAddressType(address)

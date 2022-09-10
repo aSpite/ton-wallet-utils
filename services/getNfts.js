@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { flipAddressType } from './flipAddressType.js'
+import { flipAddressType } from './utils.js'
 import { getDomain } from './getDomain.js'
 import { KNOWN_COLLECTIONS, IPFS_GATEWAY } from '../private/config.js'
 
