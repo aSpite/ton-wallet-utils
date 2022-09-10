@@ -1,9 +1,8 @@
 import { startTonLiteServer } from 'ton-wallet-utils'
 import { Address, Cell, parseStack } from 'ton'
 
-const client = await startTonLiteServer()
-
 export async function getDomain({ address }) {
+  const client = await startTonLiteServer()
   const mc = await client.getMasterchainInfoExt()
   const currentBlock = mc.last
   const buffer = Buffer.alloc(0)

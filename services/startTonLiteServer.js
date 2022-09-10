@@ -12,7 +12,10 @@ function intToIP(int) {
   return part4 + '.' + part3 + '.' + part2 + '.' + part1
 }
 
+let blockchainClient = null
+
 export async function startTonLiteServer() {
+  if (blockchainClient) return blockchainClient
   const response = await axios.get(NODES_INFO)
   const { liteservers } = response.data
 
@@ -31,5 +34,6 @@ export async function startTonLiteServer() {
 
   const engine = new LiteRoundRobinEngine(engines)
   const client = new LiteClient({ engine })
-  return client
+  blockchainClient = client
+  return blockchainClient
 }
