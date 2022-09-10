@@ -11,9 +11,11 @@ import { getNfts } from './services/getNfts.js'
 import { getTransactions } from './services/getTransactions.js'
 import { highloadTransfers } from './services/highloadTransfers.js'
 import { loadWallet } from './services/loadWallet.js'
-import { sendTransfers } from './services/highloadTransfers.js'
+import { highloadTransfers } from './services/highloadTransfers.js'
 import { startTonLiteServer } from './services/startTonLiteServer.js'
 import { transferTon } from './services/transferTon.js'
+import { shortAddress } from './services/utils.js'
+import { getNftContent } from './services/getNftContent.js'
 
 const methods = {
   config,
@@ -28,9 +30,11 @@ const methods = {
   getTransactions,
   highloadTransfers,
   loadWallet,
-  sendTransfers,
+  highloadTransfers,
   startTonLiteServer,
-  transferTon
+  transferTon,
+  shortAddress,
+  getNftContent
 }
 
 export default methods
