@@ -1,5 +1,5 @@
 import fetch, { Headers } from 'node-fetch'
-import { NNTN, TON_API_KEY, TON_API_URL } from './private/config.js'
+import { NNTN, TON_API_KEY, TON_API_URL } from '../private/config.js'
 
 export async function getBalance({ address }) {
   const options = { method: 'GET', headers: new Headers({ 'Authorization': `Bearer ${TON_API_KEY}` }) }
