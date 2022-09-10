@@ -1,4 +1,4 @@
-import { startTonLiteServer } from 'ton-wallet-utils'
+import { startTonLiteServer } from './startTonLiteServer.js'
 import { Address, Cell, parseStack } from 'ton'
 
 export async function getDomain({ address }) {
