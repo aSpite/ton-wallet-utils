@@ -5,7 +5,8 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "dev": "node test/wallet.js"
+    "dev": "node test/wallet.js",
+    "postinstall": "node ./private/patch.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,8 @@
   "dependencies": {
     "@truecarry/ton-lite-client": "^1.5.10",
     "axios": "^0.27.2",
-    "ton": "^12.0.1",
+    "node-fetch": "^3.2.10",
+    "ton": "^12.1.1",
     "ton-crypto": "^3.2.0",
     "ton-lite-client": "^1.6.0",
     "ton3-contracts": "^0.0.14",

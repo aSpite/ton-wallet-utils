@@ -1,6 +1,7 @@
 import { LiteSingleEngine } from '@truecarry/ton-lite-client/dist/engines/single.js'
 import { LiteRoundRobinEngine } from '@truecarry/ton-lite-client/dist/engines/roundRobin.js'
 import { LiteClient } from '@truecarry/ton-lite-client/dist/client.js'
+import { NODES_INFO } from '../private/config.js'
 import axios from 'axios'
 
 function intToIP(int) {
@@ -12,7 +13,7 @@ function intToIP(int) {
 }
 
 export async function startTonLiteServer() {
-  const response = await axios.get('https://ton-blockchain.github.io/global.config.json')
+  const response = await axios.get(NODES_INFO)
   const { liteservers } = response.data
 
   const engines = []

@@ -6,7 +6,7 @@ const { Wallets } = pkg
 
 const client = await startTonLiteServer()
 
-export async function sendTransfers({ transfers = [], seed }) {
+export async function highloadTransfers({ transfers = [], seed }) {
   if (!seed) return console.error('Seed is required')
   if (!transfers?.length) return console.error('Transfers are required')
   if (transfers.length > 254) return console.error('Max 254 transfers per request')
