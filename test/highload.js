@@ -1,7 +1,8 @@
-import { createHighloadWallet, sendTransfers } from '../main.js'
+import lib from '../main.js'
+const { createWallet, highloadTransfers } = lib
 
 async function exampleWallet() {
-  const { address, seed } = await createHighloadWallet()
+  const { address, seed } = await createWallet({ version: 'highload' })
   console.log({ address, seed })
   process.exit(0)
 }
@@ -30,7 +31,7 @@ async function exampleTransfer() {
   const transfers = []
   const transfer = { recipient, sendMessage, tonAmount }
   for (let i = 0; i < transfersCount; i++) transfers.push(transfer)
-  await sendTransfers({ transfers, seed })
+  await highloadTransfers({ transfers, seed })
   process.exit(0)
 }
 
