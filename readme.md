@@ -1,6 +1,10 @@
 # TON Wallet Utils
 
-Please, check `test/wallet.js` for examples how to use Highload Wallet.
+⚠️ Only work for now with Node.js v16+.
+
+Please, check `test/example.js` for some examples.
+
+And `test/wallet.js` for Highload Wallet examples.
 
 ## Introduction
 Based on [@truecarry/ton-lite-client](https://www.npmjs.com/package/@truecarry/ton-lite-client)
