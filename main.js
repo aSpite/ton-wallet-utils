@@ -15,7 +15,7 @@ import { transferTon } from './services/transferTon.js'
 import { shortAddress, flipAddressType } from './services/utils.js'
 import { getNftContent } from './services/getNftContent.js'
 
-const methods = {
+export {
   config,
   activateWallet,
   createWallet,
@@ -33,5 +33,3 @@ const methods = {
   shortAddress,
   getNftContent
 }
-
-export default methods

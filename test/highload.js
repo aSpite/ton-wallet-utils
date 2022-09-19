@@ -1,5 +1,4 @@
-import lib from '../main.js'
-const { createWallet, highloadTransfers } = lib
+import { createWallet, highloadTransfers } from '../main.js'
 
 async function exampleWallet() {
   const { address, seed } = await createWallet({ version: 'highload' })
