@@ -7,16 +7,21 @@ export async function getNftContent({ address }) {
     const isNFT = nftData?.type === 'nft_item'
     if (!isNFT) return null
 
-    const responseItem = await axios.get(nftData.contentUri)
-    const metadata = responseItem.data
+    const nftMetadataUrl = nftData?.nft_item?.content_url
 
-    return {
-      index: nftData.index,
-      itemAddress: nftData.itemAddress,
-      collectionAddress: nftData.collectionAddress,
-      uri: nftData.contentUri,
-      metadata
+    const data = {
+      index: nftData.nft_item.index,
+      itemAddress: nftData.nft_item.item_address,
+      collectionAddress: nftData.nft_item.collection_address,
+      uri: nftData.nft_item.content_url,
     }
+
+    if (nftMetadataUrl) {
+      const responseItem = await axios.get(nftMetadataUrl)
+      data.metadata = responseItem.data
+    }
+
+    return data
   } catch (e) {
     console.log(e)
     return null
