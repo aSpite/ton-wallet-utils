@@ -4,6 +4,14 @@ import { startTonLiteServer } from './startTonLiteServer.js'
 import pkg from 'ton3-contracts'
 const { Wallets } = pkg
 
+/* Example of multiple transactions in one blockchain request */
+/*
+  const seed = `your_highload_wallet_seed, can be generated with createWallet({ type: 'highload' }) or highload.ton.beauty`
+  const transfers = [
+    { recipient: 'EQDVmaZ4tfyEWXuIbZdJqmd-NVJdo7IUtj3vom-xWrlFWaNl', sendMessage: 'highload test', tonAmount: 0.001 }
+  ]
+*/
+
 export async function highloadTransfers({ transfers = [], seed }) {
   const client = await startTonLiteServer()
   if (!seed) return console.error('Seed is required')
