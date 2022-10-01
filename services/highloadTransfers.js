@@ -26,6 +26,7 @@ export async function highloadTransfers({ transfers = [], seed }) {
   } catch (e) {
     console.log(`Error while sending TON from: ${address}, maybe balance is not enough or address doesn't match?`)
     console.warn(e)
+    return e
   }
 }
 
