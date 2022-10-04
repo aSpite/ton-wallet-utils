@@ -1,6 +1,6 @@
 import { tonweb, TonWeb, NftItem, tonMnemonic } from '../private/tonweb.js'
 
-export async function transferNFT({ version = 'v4R2', senderAddress, nftIndex, senderMnemonic, receiverAddress, nftAddress, nftCollectionAddress }) {
+export async function transferNft({ version = 'v4R2', senderAddress, nftIndex, senderMnemonic, receiverAddress, nftAddress, nftCollectionAddress }) {
   const newOwnerAddress = new TonWeb.utils.Address(receiverAddress)
   const address = new TonWeb.utils.Address(nftAddress)
   const collectionAddress = new TonWeb.utils.Address(nftCollectionAddress)

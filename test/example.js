@@ -9,7 +9,8 @@ import {
   getNftContent,
   createWallet,
   getTransactions,
-  startTonLiteServer
+  startTonLiteServer,
+  transferNft,
 } from '../main.js'
 
 const { KNOWN_COLLECTIONS } = config
@@ -40,7 +41,7 @@ const data = {
   nftIndex: 1986
 }
 
-const result = await transferNFT(data)
+const result = await transferNft(data)
 console.log(result)
 
 console.log({ floor, jettons, nfts, domain, balance, shortAddressExample, nftData, regularWallet, highloadWallet, transactions })
