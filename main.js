@@ -14,6 +14,7 @@ import { startTonLiteServer } from './services/startTonLiteServer.js'
 import { transferTon } from './services/transferTon.js'
 import { shortAddress, flipAddressType } from './services/utils.js'
 import { getNftContent } from './services/getNftContent.js'
+import { transferNft } from './services/transferNft.js'
 
 export {
   config,
@@ -31,5 +32,6 @@ export {
   startTonLiteServer,
   transferTon,
   shortAddress,
-  getNftContent
+  getNftContent,
+  transferNft
 }

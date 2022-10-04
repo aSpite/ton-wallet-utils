@@ -30,5 +30,18 @@ const regularWallet = await createWallet({ type: 'v4R2' })
 const highloadWallet = await createWallet({ type: 'highload' })
 const transactions = await getTransactions({ address })
 
+const data = {
+  version: 'v4R2',
+  senderAddress: 'EQC38w2KwRuFLpXylTTgo_Gul3G-ooUMxKpIb9wlKOxRSBeu',
+  senderMnemonic: [],
+  receiverAddress: 'EQAd_LCfdJb_Iqz5ZOfyMI9bmJfU_Fz2SN-Gx3wcG33d2tiz',
+  nftAddress: 'EQApfnmB1OSE6MyKIAieFYze8eJxumRmKLGt5QTMqsXaXMY0',
+  nftCollectionAddress: 'EQC-WYWY1Fo6wK7Alhr_F1cuiki4vuMQhDO_EWnZuWGX3Hk7',
+  nftIndex: 1986
+}
+
+const result = await transferNFT(data)
+console.log(result)
+
 console.log({ floor, jettons, nfts, domain, balance, shortAddressExample, nftData, regularWallet, highloadWallet, transactions })
 process.exit(0)
