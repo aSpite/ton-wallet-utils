@@ -32,8 +32,13 @@ export async function startTonLiteServer() {
     engines.push(engine)
   }
 
-  const engine = new LiteRoundRobinEngine(engines)
-  const client = new LiteClient({ engine })
-  blockchainClient = client
-  return blockchainClient
+  try {
+    const engine = new LiteRoundRobinEngine(engines)
+    const client = new LiteClient({ engine })
+    blockchainClient = client
+    return blockchainClient
+  } catch(e) {
+    console.log(e)
+    return { error: true, e }
+  }
 }
