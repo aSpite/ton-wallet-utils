@@ -39,6 +39,6 @@ export async function startTonLiteServer() {
     return blockchainClient
   } catch(e) {
     console.log(e)
-    return { error: true, e }
+    return { error: true, e, message: 'Failed to start ton-lite-client' }
   }
 }
