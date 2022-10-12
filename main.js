@@ -15,6 +15,7 @@ import { transferTon } from './services/transferTon.js'
 import { shortAddress, flipAddressType } from './services/utils.js'
 import { getNftContent } from './services/getNftContent.js'
 import { transferNft } from './services/transferNft.js'
+import { getNftsFromScaleton } from './services/getNftsFromScaleton.js'
 
 export {
   config,
@@ -26,6 +27,7 @@ export {
   getFloor,
   getJettons,
   getNfts,
+  getNftsFromScaleton,
   getTransactions,
   highloadTransfers,
   loadWallet,
