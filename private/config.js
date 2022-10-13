@@ -19,7 +19,7 @@ export const TON_API_URL = 'https://tonapi.io/v1/blockchain/getAccount?'
 export const NNTN = 1000000000
 export const WALLET_LENGTH = 48
 
-export const IPFS_GATEWAY = 'https://ipfs.io/ipfs/'
+export const IPFS_GATEWAY = 'https://custom.infura-ipfs.io/ipfs/'
 // 'https://gateway.pinata.cloud/ipfs/'
 
 export const GET_HEADERS = BEARER_TOKEN => ({ headers: { Authorization: `Bearer ${BEARER_TOKEN}`, 'Content-Type': 'application/json' } })
