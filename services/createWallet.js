@@ -15,5 +15,6 @@ async function createRegularWallet() {
   const wallet = tonweb.wallet.create({ publicKey })
   const addr = await wallet.getAddress()
   const address = addr.toString(true, true, true, false)
-  return { address, mnemonic, publicKey, secretKey }
+  const addressNonBouncable = addr.toString(true, true, false, false)
+  return { address, addressNonBouncable, mnemonic, publicKey, secretKey }
 }
