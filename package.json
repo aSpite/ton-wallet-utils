@@ -4,20 +4,13 @@
   "description": "@tg09F9 package for TON, with some helpfull utils for wallet based on @TrueCarry liteserver",
   "type": "module",
   "scripts": {
-    "dev": "node test/wallet.js",
-    "postinstall": "node ./private/patch.js"
+    "dev": "node test/wallet.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/TON-NFT/ton-wallet-utils.git"
   },
-  "files": [
-    "index.js"
-  ],
   "main": "index.js",
-  "engines": {
-    "node": ">=16"
-  },
   "keywords": [],
   "author": "@tg09F9",
   "license": "ISC",
