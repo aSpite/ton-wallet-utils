@@ -20,6 +20,6 @@ Based on [@truecarry/ton-lite-client](https://www.npmjs.com/package/@truecarry/t
 - Get known NFT collections addresses
 - Get NFT metadata by address
 - Get Jettons balance by address
-- Get wallet balance
+- Get wallet balance by address
 - Get domain by NFT address
 - Get transactions history by address
