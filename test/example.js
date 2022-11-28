@@ -12,6 +12,7 @@ import {
   startTonLiteServer,
   transferNft,
   getNftsFromScaleton,
+  getTonPrice,
 } from '../main.js'
 
 const { KNOWN_COLLECTIONS } = config
@@ -32,6 +33,7 @@ const nftData = await getNftContent({ address: 'EQDnMTsgio_GtNKZjD1Ow6N6sAfJY_DB
 const regularWallet = await createWallet({ type: 'v4R2' })
 const highloadWallet = await createWallet({ type: 'highload' })
 const transactions = await getTransactions({ address })
+const tonPrice = await getTonPrice()
 
 const data = {
   version: 'v4R2',
@@ -46,5 +48,5 @@ const data = {
 const result = await transferNft(data)
 console.log(result)
 
-console.log({ floor, jettons, nfts, nfts2, domain, balance, shortAddressExample, nftData, regularWallet, highloadWallet, transactions })
+console.log({ floor, jettons, nfts, nfts2, domain, balance, shortAddressExample, nftData, regularWallet, highloadWallet, transactions, tonPrice })
 process.exit(0)

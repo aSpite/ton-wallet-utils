@@ -16,6 +16,7 @@ import { shortAddress, flipAddressType } from './_modules/utils.js'
 import { getNftContent } from './_modules/getNftContent.js'
 import { transferNft } from './_modules/transferNft.js'
 import { getNftsFromScaleton } from './_modules/getNftsFromScaleton.js'
+import { getTonPrice } from './_modules/getTonPrice.js'
 
 export {
   config,
@@ -35,5 +36,6 @@ export {
   transferTon,
   shortAddress,
   getNftContent,
-  transferNft
+  transferNft,
+  getTonPrice,
 }
