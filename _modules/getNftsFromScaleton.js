@@ -2,6 +2,7 @@ import axios from 'axios'
 import { getDomain } from './getDomain.js'
 import { KNOWN_COLLECTIONS } from '../private/config.js'
 
+/*  Get first 50 NFTs from Scaleton API */
 export async function getNftsFromScaleton({ address }) {
   const url = `https://api.scaleton.io/v1/accounts/${address}/nfts`
   try {

@@ -14,6 +14,7 @@ import {
   getNftsFromScaleton,
   getTonPrice,
   refreshGetgemsMetadata,
+  whoIsAddress
 } from '../index.js'
 
 const { KNOWN_COLLECTIONS } = config
@@ -36,6 +37,7 @@ const highloadWallet = await createWallet({ type: 'highload' })
 const transactions = await getTransactions({ address })
 const tonPrice = await getTonPrice()
 const refresh = await refreshGetgemsMetadata({ address: 'EQDnMTsgio_GtNKZjD1Ow6N6sAfJY_DBk-ClC-WSsvvo7YCP' })
+const whois = await whoIsAddress('EQCtiv7PrMJImWiF2L5oJCgPnzp-VML2CAt5cbn1VsKAxLiE')
 
 // const data = {
 //   version: 'v4R2',
@@ -50,5 +52,5 @@ const refresh = await refreshGetgemsMetadata({ address: 'EQDnMTsgio_GtNKZjD1Ow6N
 // const result = await transferNft(data)
 // console.log(result)
 
-console.log({ refresh, floor, jettons, nfts, nfts2, domain, balance, shortAddressExample, nftData, regularWallet, highloadWallet, transactions, tonPrice })
+console.log({ refresh, whois, floor, jettons, nfts, nfts2, domain, balance, shortAddressExample, nftData, regularWallet, highloadWallet, transactions, tonPrice })
 process.exit(0)
