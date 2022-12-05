@@ -5,7 +5,7 @@ export async function getFloor({ address }) {
   const graphQLClient = new GraphQLClient('https://api.getgems.io/graphql')
   const query = gql`
   {
-    alphaNftCollectionStats(address: "EQC3dNlesgVD8YbAazcauIrXBPfiVhMMr5YYk2in0Mtsz0Bz") {
+    alphaNftCollectionStats(address: "${address}") {
       floorPrice
       totalVolume
     }
