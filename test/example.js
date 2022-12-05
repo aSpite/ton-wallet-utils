@@ -13,7 +13,7 @@ import {
   transferNft,
   getNftsFromScaleton,
   getTonPrice,
-} from '../main.js'
+} from '../index.js'
 
 const { KNOWN_COLLECTIONS } = config
 
@@ -35,18 +35,18 @@ const highloadWallet = await createWallet({ type: 'highload' })
 const transactions = await getTransactions({ address })
 const tonPrice = await getTonPrice()
 
-const data = {
-  version: 'v4R2',
-  senderAddress: 'EQC38w2KwRuFLpXylTTgo_Gul3G-ooUMxKpIb9wlKOxRSBeu',
-  senderMnemonic: [],
-  receiverAddress: 'EQAd_LCfdJb_Iqz5ZOfyMI9bmJfU_Fz2SN-Gx3wcG33d2tiz',
-  nftAddress: 'EQApfnmB1OSE6MyKIAieFYze8eJxumRmKLGt5QTMqsXaXMY0',
-  nftCollectionAddress: 'EQC-WYWY1Fo6wK7Alhr_F1cuiki4vuMQhDO_EWnZuWGX3Hk7',
-  nftIndex: 1986
-}
+// const data = {
+//   version: 'v4R2',
+//   senderAddress: 'EQC38w2KwRuFLpXylTTgo_Gul3G-ooUMxKpIb9wlKOxRSBeu',
+//   senderMnemonic: [],
+//   receiverAddress: 'EQAd_LCfdJb_Iqz5ZOfyMI9bmJfU_Fz2SN-Gx3wcG33d2tiz',
+//   nftAddress: 'EQApfnmB1OSE6MyKIAieFYze8eJxumRmKLGt5QTMqsXaXMY0',
+//   nftCollectionAddress: 'EQC-WYWY1Fo6wK7Alhr_F1cuiki4vuMQhDO_EWnZuWGX3Hk7',
+//   nftIndex: 1986
+// }
 
-const result = await transferNft(data)
-console.log(result)
+// const result = await transferNft(data)
+// console.log(result)
 
 console.log({ floor, jettons, nfts, nfts2, domain, balance, shortAddressExample, nftData, regularWallet, highloadWallet, transactions, tonPrice })
 process.exit(0)

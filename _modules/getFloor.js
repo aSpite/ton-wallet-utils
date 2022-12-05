@@ -1,19 +1,38 @@
+import { gql, GraphQLClient } from 'graphql-request'
 import { XMLHttpRequest } from 'xmlhttprequest'
-// import fs from 'fs-extra'
+
+export async function getFloor({ address }) {
+  const graphQLClient = new GraphQLClient('https://api.getgems.io/graphql')
+  const query = gql`
+  {
+    alphaNftCollectionStats(address: "EQC3dNlesgVD8YbAazcauIrXBPfiVhMMr5YYk2in0Mtsz0Bz") {
+      floorPrice
+      totalVolume
+    }
+  }
+  `
+
+  try {
+    const results = await graphQLClient.request(query)
+    return results.alphaNftCollectionStats.floorPrice
+  } catch (error) {
+    console.log(error)
+    return fallbackGetFloor({ address })
+  }
+}
+
+export function fallbackGetFloor({ address }) {
+  if (address.length !== 48) return 0
+  const html = getHtml(`https://getgems.io/collection/${address}`)
+  const floor = +getStringBetween(html, `"floorPrice":`, `,"`) || null
+  return floor
+}
 
 function getHtml(link) {
-  var xhr = new XMLHttpRequest()
+  const xhr = new XMLHttpRequest()
   xhr.open('GET', link, false)
   xhr.send()
   return xhr.responseText
-}
-
-export function getFloor({ address }) {
-  if (address.length !== 48) return 0
-  const html = getHtml(`https://getgems.io/collection/${address}`)
-  // fs.outputFileSync(`./temp/${address}.html`, html)
-  const floor = +getStringBetween(html, `"floorPrice":`, `,"`) || null
-  return floor
 }
 
 function getStringBetween(str, start, end) {
