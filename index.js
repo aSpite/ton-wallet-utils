@@ -19,6 +19,7 @@ import { getNftsFromScaleton } from './_modules/getNftsFromScaleton.js'
 import { getTonPrice } from './_modules/getTonPrice.js'
 import { transferJetton } from './_modules/transferJetton.js'
 import { getJettonBalance } from './_modules/getJettonBalance.js'
+import { refreshGetgemsMetadata } from './_modules/refreshGetgemsMetadata.js'
 
 export {
   config,
@@ -42,4 +43,5 @@ export {
   getTonPrice,
   transferJetton,
   getJettonBalance,
+  refreshGetgemsMetadata,
 }

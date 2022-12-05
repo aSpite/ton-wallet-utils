@@ -13,6 +13,7 @@ import {
   transferNft,
   getNftsFromScaleton,
   getTonPrice,
+  refreshGetgemsMetadata,
 } from '../index.js'
 
 const { KNOWN_COLLECTIONS } = config
@@ -34,6 +35,7 @@ const regularWallet = await createWallet({ type: 'v4R2' })
 const highloadWallet = await createWallet({ type: 'highload' })
 const transactions = await getTransactions({ address })
 const tonPrice = await getTonPrice()
+const refresh = await refreshGetgemsMetadata({ address: 'EQDnMTsgio_GtNKZjD1Ow6N6sAfJY_DBk-ClC-WSsvvo7YCP' })
 
 // const data = {
 //   version: 'v4R2',
@@ -48,5 +50,5 @@ const tonPrice = await getTonPrice()
 // const result = await transferNft(data)
 // console.log(result)
 
-console.log({ floor, jettons, nfts, nfts2, domain, balance, shortAddressExample, nftData, regularWallet, highloadWallet, transactions, tonPrice })
+console.log({ refresh, floor, jettons, nfts, nfts2, domain, balance, shortAddressExample, nftData, regularWallet, highloadWallet, transactions, tonPrice })
 process.exit(0)
