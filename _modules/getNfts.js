@@ -1,13 +1,13 @@
 import axios from 'axios'
 import { flipAddressType } from './utils.js'
 import { getDomain } from './getDomain.js'
-import { KNOWN_COLLECTIONS, IPFS_GATEWAY } from '../private/config.js'
+import { KNOWN_COLLECTIONS, IPFS_GATEWAY, TON_API_KEY } from '../private/config.js'
 
 export async function getNfts({ address }) {
   const rawAddress = flipAddressType(address)
   const url = `https://tonapi.io/v1/nft/getItemsByOwnerAddress?account=${rawAddress}`
   try {
-    const { statusText, data } = await axios.get(url)
+    const { statusText, data } = await axios.get(url, { headers: { 'Authorization': `Bearer ${TON_API_KEY}` } })
     if (statusText !== 'OK') return { error: true, nfts: [] }
     const nfts = await mapNFTs(data.nft_items)
     for (const n of nfts.filter(nft => !nft.metadata)) {

@@ -1,14 +1,13 @@
 import axios from 'axios'
 import { flipAddressType } from './utils.js'
+import { TON_API_KEY } from '../private/config.js'
 
 export async function getJettons({ address }) {
   const rawAddress = flipAddressType(address)
 
   try {
-    const token = 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsidGcwOUY5Il0sImV4cCI6MTgxNjIwMjE3NCwiaXNzIjoiQHRvbmFwaV9ib3QiLCJqdGkiOiI1VTU1VjdVVEUzQk1OMzdYVk1EWVYzSUYiLCJzY29wZSI6InNlcnZlciIsInN1YiI6InRvbmFwaSJ9.tDG3J0wdqIYs1P227m2YeaMk_18CrOw7mE1TYBQ7wVTCCz9WVdx7OI4zX9bL7EvlzdrEzWOG9qma1RpC4V_oCQ'
-
     const url = `https://tonapi.io/v1/jetton/getBalances?account=${rawAddress}`
-    const { statusText, data } = await axios.get(url, { headers: { 'Authorization': `Bearer ${token}` } })
+    const { statusText, data } = await axios.get(url, { headers: { 'Authorization': `Bearer ${TON_API_KEY}` } })
     if (statusText === 'OK') {
       let jettons = []
 
@@ -18,7 +17,7 @@ export async function getJettons({ address }) {
 
           const url = `https://tonapi.io/v1/jetton/getInfo?account=${tokenBalance.jetton_address}`
 
-          const { statusText, data } = await axios.get(url, { headers: { 'Authorization': `Bearer ${token}` } })
+          const { statusText, data } = await axios.get(url, { headers: { 'Authorization': `Bearer ${TON_API_KEY}` } })
 
           const tokenBalanceWithInfo = { ...tokenBalance }
           if (statusText === 'OK') {
@@ -44,7 +43,7 @@ export async function getJettons({ address }) {
       }
     }
   } catch(e) {
-    console.log(e)
+    console.log(e.code)
     return []
   }
 }
