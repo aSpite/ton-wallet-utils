@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { flipAddressType } from './utils.js'
-import { TON_API_KEY } from '../private/config.js'
+import { TON_API_KEY, IPFS_GATEWAY } from '../private/config.js'
 
 export async function getJettons({ address }) {
   const rawAddress = flipAddressType(address)
