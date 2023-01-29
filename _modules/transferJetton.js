@@ -17,7 +17,7 @@ export async function transferJetton({ jettonAddress, jettonWalletAddress, toAdd
 
   const seqno = (await wallet.methods.seqno().call()) || 0
 
-  const jettonWallet = new JettonWallet(tonweb.provider, { address: jettonAddress })
+  const jettonWallet = new JettonWallet(tonweb.provider, { address: jettonWalletAddress })
 
   const transferBodyParams = {
     jettonAmount: TonWeb.utils.toNano(String(amount)),
@@ -32,7 +32,7 @@ export async function transferJetton({ jettonAddress, jettonWalletAddress, toAdd
 
     const tx = {
       secretKey,
-      toAddress: jettonAddress,
+      toAddress: jettonWalletAddress,
       amount: TonWeb.utils.toNano('0.05'),
       seqno,
       payload,
