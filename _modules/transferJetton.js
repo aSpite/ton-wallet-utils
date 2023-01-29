@@ -1,7 +1,13 @@
 import { tonweb, TonWeb, tonMnemonic } from '../private/tonweb.js'
+import { getJettonWalletAddress } from './getJettonWalletAddress.js'
 const { JettonWallet } = TonWeb.token.jetton
 
-export async function transferJetton({ jettonAddress, toAddress, amount, mnemonic, version = 'v4R2', payload = '' }) {
+/* jettonAddress or jettonWalletAddress required, fromAddress is not required */
+export async function transferJetton({ jettonAddress, jettonWalletAddress, toAddress, fromAddress, amount, mnemonic, version = 'v4R2', payload = '' }) {
+  if (!jettonWalletAddress) jettonWalletAddress = await getJettonWalletAddress({ jettonAddress, walletAddress: fromAddress, mnemonic, version })
+
+  if (!jettonWalletAddress) throw new Error('Jetton wallet address not found, please pass it or at least pass jettonAddress and mnemonic')
+
   const keyPair = await tonMnemonic.mnemonicToKeyPair(mnemonic)
   const { publicKey, secretKey } = keyPair
   const WalletClass = tonweb.wallet.all[version]
