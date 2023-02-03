@@ -6,7 +6,7 @@ import { Address, TonClient } from "ton";
 
 export async function loadWallet({ version = 'v4R2', mnemonic = [], seed = '' }) {
   let walletType;
-  switch (key) {
+  switch (version) {
     case VERSION_TYPES.highload:
       return await loadHighloadWallet({ seed })
     case VERSION_TYPES.v3R2:
@@ -25,7 +25,7 @@ export async function loadWallet({ version = 'v4R2', mnemonic = [], seed = '' })
     endpoint: 'https://example.com/'
   });
   const wallet = await client.openWalletFromSecretKey({secretKey: Buffer.from(keyPair.secretKey), workchain: 0, type: walletType})
-  const address = wallet.address();
+  const address = wallet.address;
   const nonBouncableAddress = address.toFriendly({bounceable: false});
   return { address, nonBouncableAddress, mnemonic, publicKey, secretKey }
 }
