@@ -1,18 +1,33 @@
 import { VERSION_TYPES } from '../private/config.js'
-import { tonMnemonic, tonweb } from '../private/tonweb.js'
+import { tonMnemonic } from '../private/tonweb.js'
 import { keyPairFromSeed } from 'ton-crypto'
 import { Wallets } from 'ton3-contracts'
+import { Address, TonClient } from "ton";
 
 export async function loadWallet({ version = 'v4R2', mnemonic = [], seed = '' }) {
-  if (version === VERSION_TYPES.highload) return await loadHighloadWallet({ seed })
-  if (version !== VERSION_TYPES.v4R2) return { error: 'Unknown version. Please use v4R2 or highload' }
+  let walletType;
+  switch (key) {
+    case VERSION_TYPES.highload:
+      return await loadHighloadWallet({ seed })
+    case VERSION_TYPES.v3R2:
+      walletType = 'org.ton.wallets.v3.r2';
+      break;
+    case VERSION_TYPES.v4R2:
+      walletType = 'org.ton.wallets.v4';
+      break;
+    default:
+      return { error: 'Unknown version. Please use v3R2, v4R2 or highload' }
+  }
+
   const keyPair = await tonMnemonic.mnemonicToKeyPair(mnemonic)
   const { publicKey, secretKey } = keyPair
-  const wallet = tonweb.wallet.create({ publicKey })
-  const addr = await wallet.getAddress()
-  const address = addr.toString(true, true, true, false)
-  const addressNonBouncable = addr.toString(true, true, false, false)
-  return { address, addressNonBouncable, mnemonic, publicKey, secretKey }
+  const client = new TonClient({
+    endpoint: 'https://example.com/'
+  });
+  const wallet = await client.openWalletFromSecretKey({secretKey: Buffer.from(keyPair.secretKey), workchain: 0, type: walletType})
+  const address = wallet.address();
+  const nonBouncableAddress = address.toFriendly({bounceable: false});
+  return { address, nonBouncableAddress, mnemonic, publicKey, secretKey }
 }
 
 export async function loadHighloadWallet({ seed }) {
